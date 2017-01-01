@@ -93,6 +93,7 @@ class Tag(models.Model):
 
     class Meta:
         ordering = ('name',)
+        app_label = 'articles'
 
 class ArticleStatusManager(models.Manager):
 
@@ -114,6 +115,7 @@ class ArticleStatus(models.Model):
     class Meta:
         ordering = ('ordering', 'name')
         verbose_name_plural = _('Article statuses')
+        app_label = 'articles'
 
     def __unicode__(self):
         if self.is_live:
@@ -474,6 +476,7 @@ class Article(models.Model):
     class Meta:
         ordering = ('-publish_date', 'title')
         get_latest_by = 'publish_date'
+        app_label = 'articles'
 
 class Attachment(models.Model):
     upload_to = lambda inst, fn: 'attach/%s/%s/%s' % (now().year, inst.article.slug, fn)
@@ -484,6 +487,7 @@ class Attachment(models.Model):
 
     class Meta:
         ordering = ('-article', 'id')
+        app_label = 'articles'
 
     def __unicode__(self):
         return u'%s: %s' % (self.article, self.caption)

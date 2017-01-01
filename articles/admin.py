@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 from forms import ArticleAdminForm
-from models import Tag, Article, ArticleStatus, Attachment
+from articles.models import Tag, Article, ArticleStatus, Attachment
 
 log = logging.getLogger('articles.admin')
 
