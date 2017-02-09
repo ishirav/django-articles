@@ -131,7 +131,7 @@ class ArticleManager(models.Manager):
         yet expired.
         """
         _now = now()
-        return self.get_query_set().filter(
+        return self.filter(
                 Q(expiration_date__isnull=True) |
                 Q(expiration_date__gte=_now),
                 publish_date__lte=_now,
